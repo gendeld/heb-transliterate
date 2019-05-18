@@ -79,7 +79,11 @@ const ENGLISH_NAME_TO_HEBREW_MAP = {
   iain: "איאן"
 };
 
-function transliterate(text) {
+module.exports = function transliterate(text) {
+  if (!/^[a-zA-Z. 0-9]+$/.test(text)) {
+    console.warn("This package only transliterates from English");
+    return text;
+  }
   const lowerCaseText = text.toLocaleLowerCase();
   const words = lowerCaseText.split(/[. ]/g).filter(word => word);
   const transliteratedText = words
@@ -181,4 +185,4 @@ function transliterate(text) {
     )
     .join(" ");
   return transliteratedText;
-}
+};
