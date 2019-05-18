@@ -77,6 +77,8 @@ function transliterate(text) {
           .replace(/^ts/g, "צ")
           .replace(/igh/g, "יי")
           .replace(/gh$/g, "")
+          .replace(/who/g, "הו")
+          .replace(/wh/g, "וו")
           .replace(/^ace/g, "אייס")
           .replace(/ace$/g, "אס")
           .replace(/ace/g, "ייס")
