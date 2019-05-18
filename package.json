@@ -1,6 +1,6 @@
 {
   "name": "heb-transliterate",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Transliterates text from English to Hebrew",
   "main": "index.js",
   "author": "Daniel Gendelman",
