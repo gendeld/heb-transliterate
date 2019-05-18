@@ -164,6 +164,7 @@ module.exports = function transliterate(text) {
           .replace(/(j|g[e])/g, "ג'")
           .replace(/g[iyי]/g, "ג'י")
           .replace(/[iy]/g, "י")
+          .replace(/ou/g, "ו")
           .replace(/[ou]/g, "ו")
           .replace(/[bv]/g, "ב")
           .replace(/[cqk]/g, "ק")
