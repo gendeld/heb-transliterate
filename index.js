@@ -29,17 +29,11 @@ const ENGLISH_NAME_TO_HEBREW_MAP = {
   sarah: "שרה",
   sara: "שרה",
   susan: "סוזן",
-  amy: "איימי",
   heather: "הת'ר",
-  jean: "ג'ין",
   cheryl: "שריל",
-  irene: "איירין",
-  jane: "ג'יין",
   rachel: "רייצ'ל",
   tina: "טינה",
-  tracy: "טרייסי",
   james: "ג'יימס",
-  john: "ג'ון",
   michael: "מייקל",
   david: "דייוויד",
   richard: "ריצ'רד",
@@ -52,9 +46,37 @@ const ENGLISH_NAME_TO_HEBREW_MAP = {
   stephen: "סטפן",
   peter: "פיטר",
   ryan: "ראיין",
-  dave: "דייב",
   jose: "חוזה",
-  douglas: "דאגלס"
+  juanita: "חואניטה",
+  douglas: "דאגלס",
+  rose: "רוז",
+  andrea: "אנדריאה",
+  louise: "לויז",
+  anne: "אן",
+  eva: "אווה",
+  megan: "מייגן",
+  marie: "מרי",
+  peggy: "פגי",
+  grace: "גרייס",
+  carrie: "קרי",
+  beatrice: "ביאטריס",
+  renee: "רנה",
+  vivian: "ויויאן",
+  jeanne: "ג'ין",
+  keith: "קית'",
+  samuel: "סמואל",
+  harry: "הארי",
+  steve: "סטיב",
+  louis: "לואיס",
+  aaron: "אהרון",
+  howard: "הווארד",
+  russell: "ראסל",
+  jesse: "ג'סי",
+  shawn: "שון",
+  sean: "שון",
+  javier: "חאבייר",
+  ian: "איאן",
+  iain: "איאן"
 };
 
 function transliterate(text) {
@@ -72,42 +94,56 @@ function transliterate(text) {
           .replace(/kh/g, "ח")
           .replace(/(sh|sch)/g, "ש")
           .replace(/th/g, "ת'")
-          .replace(/ph$/g, "ף")
+          .replace(/ph$/, "ף")
           .replace(/ph/g, "פ")
-          .replace(/^ts/g, "צ")
+          .replace(/^rh/, "ר")
+          .replace(/^ts/, "צ")
+          .replace(/^eu/, "יו")
           .replace(/igh/g, "יי")
-          .replace(/gh$/g, "")
+          .replace(/gh$/, "")
           .replace(/who/g, "הו")
           .replace(/wh/g, "וו")
-          .replace(/^ace/g, "אייס")
-          .replace(/ace$/g, "אס")
+          .replace(/ohn$/, "ון")
+          .replace(/ohn/g, "ונ")
+          .replace(/ene$/, "ין")
+          .replace(/^ace/, "אייס")
+          .replace(/ace$/, "אס")
           .replace(/ace/g, "ייס")
-          .replace(/ate$/g, "ייט")
-          .replace(/oe$/g, "ואי")
+          .replace(/^chris/, "כריס")
+          .replace(/(^.{0,1}[^aeiou])acy$/, "$1" + "ייסי")
+          .replace(/acy$/, "$1" + "סי")
+          .replace(/^a([^aeiou])e$/, "איי" + "$1")
+          .replace(/^a([^aeiou])y$/, "איי" + "$1" + "י")
+          .replace(/(^.{0,1}[^aeiou])a(.)e$/, "$1" + "יי" + "$2")
+          .replace(/(^.[^aeiou])a(.)y$/, "$1" + "יי" + "$2" + "י")
+          .replace(/(^.{0,1}[^aeiou])a(.)ie$/, "$1" + "יי" + "$2" + "י")
+          .replace(/ea([^aeiou])$/, "י" + "$1")
+          .replace(/^i([rvd])/, "איי" + "$1")
+          .replace(/oe$/, "ואי")
           .replace(/(ao|^oa)/g, "או")
           .replace(/eo/g, "יאו")
           .replace(/co/g, "קו")
-          .replace(/ca$/g, "קה")
-          .replace(/^cha/g, "צ'")
-          .replace(/cha$/g, "כה")
+          .replace(/ca$/, "קה")
+          .replace(/^cha/, "צ'")
+          .replace(/cha$/, "כה")
           .replace(/cha/g, "כ")
-          .replace(/che$/g, "צ'ה")
+          .replace(/che$/, "צ'ה")
           .replace(/che/g, "צ'")
           .replace(/chi/g, "צ'י")
-          .replace(/chu$/g, "צ'ו")
+          .replace(/chu$/, "צ'ו")
           .replace(/chu/g, "צ'א")
           .replace(/(ca|ch|cq|ck)/g, "ק")
           .replace(/jus/g, "ג'ס")
           .replace(/(ce|s)/g, "ס")
           .replace(/(cie|ci|cy)/g, "סי")
-          .replace(/(ua$|oa$)/g, "ואה")
+          .replace(/(ua$|oa$)/, "ואה")
           .replace(/oa/g, "וא")
-          .replace(/(ew$|^v)/g, "ו")
+          .replace(/(ew$|^v)/, "ו")
           .replace(/w/g, "וו")
           .replace(/ia$/g, "יה")
           .replace(/ia/g, "יא")
-          .replace(/a$/g, "ה")
-          .replace(/^i/g, "אי")
+          .replace(/a$/, "ה")
+          .replace(/^i/, "אי")
           .replace(/(^ai)/g, "איי")
           .replace(/(ai|ay)/g, "יי")
           .replace(/(?<=[^h])a(?=[^a-z&\{-]|$)/g, "א")
@@ -117,10 +153,11 @@ function transliterate(text) {
           .replace(/(?<=^|[ -])[ou]/g, "או")
           .replace(/(iyi|ei)/g, "יי")
           .replace(/(yi|ie$|a[iy])/g, "י")
-          .replace(/^ie/g, "איא")
+          .replace(/^ie/, "איא")
           .replace(/ie/g, "יא")
           .replace(/oi/g, "וי")
-          .replace(/(j|g[eiy])/g, "ג'")
+          .replace(/(j|g[e])/g, "ג'")
+          .replace(/g[iyי]/g, "ג'י")
           .replace(/[iy]/g, "י")
           .replace(/[ou]/g, "ו")
           .replace(/[bv]/g, "ב")
@@ -130,15 +167,17 @@ function transliterate(text) {
           .replace(/h/g, "ה")
           .replace(/z/g, "ז")
           .replace(/l/g, "ל")
-          .replace(/m$/g, "ם")
           .replace(/m/g, "מ")
-          .replace(/n$/g, "ן")
           .replace(/n/g, "נ")
-          .replace(/f$/g, "ף")
+          .replace(/f$/, "ף")
           .replace(/[pf]/g, "פ")
           .replace(/r/g, "ר")
           .replace(/t/g, "ט")
           .replace(/[a-z]/gi, "")
+          .replace(/מ$/, "ם")
+          .replace(/נ$/, "ן")
+          .replace(/צ$/, "ץ")
+          .replace(/כ$/, "ך")
     )
     .join(" ");
   return transliteratedText;
