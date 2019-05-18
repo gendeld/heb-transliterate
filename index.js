@@ -26,6 +26,7 @@ const ENGLISH_NAME_TO_HEBREW_MAP = {
   y: "וואי.",
   z: "זי.",
   jr: "ג'וניור",
+  de: "דה",
   michelle: "מישל",
   sarah: "שרה",
   sara: "שרה",
@@ -34,7 +35,6 @@ const ENGLISH_NAME_TO_HEBREW_MAP = {
   cheryl: "שריל",
   rachel: "רייצ'ל",
   tina: "טינה",
-  james: "ג'יימס",
   michael: "מייקל",
   david: "דייוויד",
   richard: "ריצ'רד",
@@ -121,7 +121,7 @@ module.exports = function transliterate(text) {
           .replace(/acy$/, "$1" + "סי")
           .replace(/^a([^aeiou])e$/, "איי" + "$1")
           .replace(/^a([^aeiou])y$/, "איי" + "$1" + "י")
-          .replace(/(^.{0,1}[^aeiou])a(.)e$/, "$1" + "יי" + "$2")
+          .replace(/(^.{0,1}[^aeiou])a(.)e(s{0,1})$/, "$1" + "יי" + "$2" + "$3")
           .replace(/(^[^aeiou])i(.)e$/, "$1" + "יי" + "$2")
           .replace(/(^.[^aeiou])a(.)y$/, "$1" + "יי" + "$2" + "י")
           .replace(/(^.{0,1}[^aeiou])a(.)ie$/, "$1" + "יי" + "$2" + "י")
