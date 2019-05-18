@@ -92,6 +92,8 @@ module.exports = function transliterate(text) {
       word =>
         ENGLISH_NAME_TO_HEBREW_MAP[word] ||
         word
+          .replace(/^chris/, "כריס")
+          .replace(/^alex/, "אלכס")
           .replace(/(cce|x)/g, "קס")
           .replace(/ee/g, "י")
           .replace(/a\'a/g, "ע")
@@ -115,8 +117,6 @@ module.exports = function transliterate(text) {
           .replace(/^ace/, "אייס")
           .replace(/ace$/, "אס")
           .replace(/ace/g, "ייס")
-          .replace(/^chris/, "כריס")
-          .replace(/^alex/, "אלכס")
           .replace(/(^.{0,1}[^aeiou])acy$/, "$1" + "ייסי")
           .replace(/acy$/, "$1" + "סי")
           .replace(/^a([^aeiou])e$/, "איי" + "$1")
