@@ -80,7 +80,7 @@ const ENGLISH_NAME_TO_HEBREW_MAP = {
 };
 
 module.exports = function transliterate(text) {
-  if (!/^[a-zA-Z. 0-9]+$/.test(text)) {
+  if (!/^[a-zA-Z.\- 0-9]+$/.test(text)) {
     console.warn("This package only transliterates from English");
     return text;
   }
