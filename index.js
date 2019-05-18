@@ -27,6 +27,9 @@ const ENGLISH_NAME_TO_HEBREW_MAP = {
   z: "זי.",
   jr: "ג'וניור",
   de: "דה",
+  ii: "השני",
+  iii: "השלישי",
+  iv: "הרביעי",
   michelle: "מישל",
   sarah: "שרה",
   sara: "שרה",
@@ -77,7 +80,10 @@ const ENGLISH_NAME_TO_HEBREW_MAP = {
   sean: "שון",
   javier: "חאבייר",
   ian: "איאן",
-  iain: "איאן"
+  iain: "איאן",
+  hannah: "חנה",
+  jacob: "ג'ייקוב",
+  andre: "אנדריי"
 };
 
 module.exports = function transliterate(text) {
@@ -86,7 +92,7 @@ module.exports = function transliterate(text) {
     return text;
   }
   const lowerCaseText = text.toLocaleLowerCase();
-  const words = lowerCaseText.split(/[. ]/g).filter(word => word);
+  const words = lowerCaseText.split(/[.\- ]/g).filter(word => word);
   const transliteratedText = words
     .map(
       word =>
