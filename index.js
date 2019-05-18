@@ -35,7 +35,7 @@ const ENGLISH_NAME_TO_HEBREW_MAP = {
   rachel: "רייצ'ל",
   tina: "טינה",
   james: "ג'יימס",
-  michael: "מייקל",ן
+  michael: "מייקל",
   david: "דייוויד",
   richard: "ריצ'רד",
   george: "ג'ורג",
