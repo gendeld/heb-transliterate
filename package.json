@@ -1,5 +1,5 @@
 {
-  "name": "@gendeld/heb-transliterate",
+  "name": "heb-transliterate",
   "version": "1.0.0",
   "description": "Transliterates text from English to Hebrew",
   "main": "index.js",
