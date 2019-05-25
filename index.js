@@ -83,11 +83,13 @@ const ENGLISH_NAME_TO_HEBREW_MAP = {
   iain: "איאן",
   hannah: "חנה",
   jacob: "ג'ייקוב",
-  andre: "אנדריי"
+  andre: "אנדריי",
+  cruise: "קרוז",
+  nathan: "ניית'ן"
 };
 
 module.exports = function transliterate(text) {
-  if (!/^[a-zA-Z.\- 0-9]+$/.test(text)) {
+  if (!/^[a-zA-Z.\-' 0-9]+$/.test(text)) {
     console.warn("This package only transliterates from English");
     return text;
   }
